@@ -187,34 +187,40 @@ export function Menu(props) {
   return (
     <StyledMenu className={props.showMenu ? "show" : ""}>
       <div className="left-side">
-        {props.signedIn ? (
-          <Link
-            to={`/${props.widgets.profilePage}?accountId=${props.signedAccountId}`}
-            className="profile-link"
-          >
-            <Widget
-              src={props.widgets.profileImage}
-              props={{
-                accountId: props.signedAccountId,
-                className: "d-inline-block",
-                style: { width: "56px", height: "56px" },
+        <div className="profile-section">
+          {props.signedIn ? (
+            <Link
+              to={`/${props.widgets.profilePage}?accountId=${props.signedAccountId}`}
+              className="profile-link"
+            >
+              <Widget
+                src={props.widgets.profileImage}
+                props={{
+                  accountId: props.signedAccountId,
+                  className: "d-inline-block",
+                  style: { width: "56px", height: "56px" },
+                }}
+              />
+              {props.widgets.profileName && (
+                <div className="profile-name">
+                  <Widget src={props.widgets.profileName} />
+                </div>
+              )}
+              <div className="profile-username">{props.signedAccountId}</div>
+            </Link>
+          ) : (
+            <SignInButton
+              onSignIn={() => {
+                props.onCloseMenu();
+                props.requestSignIn();
               }}
             />
-            {props.widgets.profileName && (
-              <div className="profile-name">
-                <Widget src={props.widgets.profileName} />
-              </div>
-            )}
-            <div className="profile-username">{props.signedAccountId}</div>
-          </Link>
-        ) : (
-          <SignInButton
-            onSignIn={() => {
-              props.onCloseMenu();
-              props.requestSignIn();
-            }}
-          />
-        )}
+          )}
+        </div>
+        {/* Hairline with padding inside */}
+        <div className="hairline-wrapper">
+          <div className="hairline" />
+        </div>
         <ul className="top-links">
           <li>
             <NavigationButton route="/">
@@ -257,15 +263,24 @@ export function Menu(props) {
             </NavigationButton>
           </li>
         </ul>
-        <ul className="bottom-links">
-         
+         <ul className="bottom-links">
           {props.signedIn && (
-            <li>
-              <button onClick={() => props.logOut()} className="log-out-button">
-                <LogOut />
-                Sign Out
-              </button>
-            </li>
+            <>
+{/* Hairline with padding inside */}
+        <div className="hairline-wrapper">
+          <div className="hairline" />
+        </div>
+
+                          <li>
+                <button
+                  onClick={() => props.logOut()}
+                  className="log-out-button"
+                >
+                  <LogOut />
+                  Sign Out
+                </button>
+              </li>
+            </>
           )}
         </ul>
         <button className="close-button" onClick={props.onCloseMenu}>
@@ -276,3 +291,4 @@ export function Menu(props) {
     </StyledMenu>
   );
 }
+
