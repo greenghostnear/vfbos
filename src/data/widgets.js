@@ -5,6 +5,8 @@ const TestnetDomains = {
 
 export const NetworkId =
   window.location.hostname in TestnetDomains ? "testnet" : "mainnet";
+export const ContractId =
+  NetworkId === "testnet" ? "v1.social08.testnet" : "social.near";
 const TestnetWidgets = {
   image: "eugenethedream/widget/Image",
   default: "eugenethedream/widget/Welcome",
@@ -20,13 +22,13 @@ const TestnetWidgets = {
 
 const MainnetWidgets = {
   image: "mob.near/widget/Image",
-  default: "vfdao.near/widget/DAO.Page",
+  default: "mob.near/widget/Homepage",
   viewSource: "mob.near/widget/WidgetSource",
   widgetMetadataEditor: "mob.near/widget/WidgetMetadataEditor",
   widgetMetadata: "mob.near/widget/WidgetMetadata",
   profileImage: "mob.near/widget/ProfileImage",
-  notificationButton: "vfdao.near/widget/NotificationButton",
-  profilePage: "vfdao.near/widget/ProfilePage",
+  notificationButton: "onsocial.near/widget/NotificationButton",
+  profilePage: "onsocial.near/widget/ProfilePage",
   profileName: "patrick.near/widget/ProfileName",
   editorComponentSearch: "mob.near/widget/Editor.ComponentSearch",
   profileInlineBlock: "mob.near/widget/Profile.InlineBlock",
