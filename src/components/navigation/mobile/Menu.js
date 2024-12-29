@@ -223,7 +223,7 @@ export function Menu(props) {
         </div>
         <ul className="top-links">
           <li>
-            <NavigationButton route="/">
+            <NavigationButton route={`/${props.widgets.default}`}>
               <Home />
               Home
             </NavigationButton>
