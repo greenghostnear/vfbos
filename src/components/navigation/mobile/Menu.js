@@ -43,9 +43,8 @@ const StyledMenu = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 25px;
+    padding: 0px;
     overflow-x: auto;
-
 
     .nav-sign-in-btn {
       width: fit-content;
@@ -65,19 +64,36 @@ const StyledMenu = styled.div`
     }
 
     .profile-name {
-      color: black;
+      color: #232528;
       font-weight: var(--font-weight-bold);
-      margin-top: 10px;
+      margin-top: 5px;
     }
 
     .profile-username {
-      color: var(--slate-dark-11);
+      color: #687076;
     }
 
     .profile-name,
     .profile-username {
       text-overflow: ellipsis;
       overflow: hidden;
+    }
+
+    .profile-section {
+      margin-bottom: 0px;
+      padding: 25px;
+    }
+
+    /* Hairline with padding inside */
+    .hairline-wrapper {
+      padding-left: 25px; /* Apply padding to the left */
+      padding-right: 25px; /* Apply padding to the right */
+    }
+
+    .hairline {
+      height: 1px;
+      background-color: #eee;
+margin-bottom: 20px;
     }
   }
 
@@ -89,8 +105,10 @@ const StyledMenu = styled.div`
       padding: 28px 0;
       display: flex;
       align-items: center;
-      color: var(--slate-dark-11);
+      color: #232528;
       font-weight: var(--font-weight-bold);
+      border-radius: 0;
+      padding: 25px;
 
       svg {
         margin-right: 12px;
@@ -99,12 +117,12 @@ const StyledMenu = styled.div`
       &.active,
       &:hover,
       &:focus {
-        background-color: transparent;
-        color: black;
+        background-color: #f6c73b;
         text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
         svg {
           path {
-            stroke: black;
+            stroke: #232528;
           }
         }
       }
@@ -112,7 +130,7 @@ const StyledMenu = styled.div`
   }
 
   .top-links {
-    margin-top: 40px;
+    margin-top: 10px;
   }
 
   .bottom-links {
@@ -120,20 +138,22 @@ const StyledMenu = styled.div`
 
     a,
     button {
-      padding: 14px 0;
+      padding: 14px 10px 14px 25px; /* Apply 25px padding to the left */
+      transition: background-color 0.3s ease, padding 0.3s ease;
+      border-radius: 0px;
     }
   }
 
   .log-out-button {
     background: none;
     border: none;
-    color: var(--slate-dark-11);
+    color: #232528;
     font-weight: var(--font-weight-bold);
     padding: 28px 0;
 
     svg {
       path {
-        stroke: #9ba1a6;
+        stroke: #232528;
       }
     }
   }
@@ -154,7 +174,7 @@ const StyledMenu = styled.div`
   .right-side {
     flex: 20;
     opacity: 0.8;
-    background-color: var(--slate-dark-1);
+    background-color: #232528;
   }
 `;
 

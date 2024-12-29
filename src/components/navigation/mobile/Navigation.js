@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { MobileMenuButton } from "./MobileMenuButton";
@@ -49,41 +49,8 @@ const StyledNavigation = styled.div`
 `;
 
 export function Navigation(props) {
-  const [scrolled, setScrolled] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);  // To track the last scroll position
-  const [hide, setHide] = useState(false); // To control visibility of the navbar
-
-  // Scroll event handler to track scrolling direction and position
-  useEffect(() => {
-    const handleScroll = () => {
-      // If user scrolls down, hide the navbar, if scrolling up, show the navbar
-      if (window.scrollY > lastScrollY) {
-        // Scrolling down
-        setHide(true);
-      } else {
-        // Scrolling up
-        setHide(false);
-      }
-
-      // Update last scroll position
-      setLastScrollY(window.scrollY);
-
-      // Change background when scrolling down past 50px
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScrollY]); // Dependency on last scroll position to track direction
-
   return (
-    <StyledNavigation scrolled={scrolled} hide={hide}>
+    <StyledNavigation>
       <MobileMenuButton
         onClick={props.onClickShowMenu}
         currentPage={props.currentPage}
@@ -99,6 +66,7 @@ export function Navigation(props) {
       </Link>
       {props.signedIn ? (
         <div className="d-flex">
+          
           <NotificationWidget
             notificationButtonSrc={props.widgets.notificationButton}
           />
