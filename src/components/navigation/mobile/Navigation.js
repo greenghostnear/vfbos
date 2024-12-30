@@ -19,7 +19,7 @@ const StyledNavigation = styled.div`
   align-items: center;
   justify-content: space-between;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-  background-color: ${({ scrolled }) => (scrolled ? '#232528' : '#232528')};
+  background-color: ${({ scrolled }) => (scrolled ? '#012c10' : '#012c10')};
   transform: ${({ hide }) => (hide ? 'translateY(-100%)' : 'translateY(0)')};
   height: 48px;  // Limit the height of the navbar
 
