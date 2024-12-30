@@ -5,11 +5,6 @@ import styled from "styled-components";
 const StyledButton = styled(Button)`
   background-color: white;
   border-color: #012c10;
-  color: #012c10;
-`;
-const StyledButton = styled(Button)`
-  background-color: white;
-  border-color: #012c10;
   border-radius: 50px;
   color: #012c10;
 max-height: 35px;
