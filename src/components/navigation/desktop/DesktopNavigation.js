@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Logotype } from "../Logotype";
@@ -6,7 +6,6 @@ import { NavigationButton } from "../NavigationButton";
 import { ArrowUpRight } from "../../icons/ArrowUpRight";
 import { SignInButton } from "../SignInButton";
 import { UserDropdown } from "./UserDropdown";
-import { DevActionsDropdown } from "./DevActionsDropdown";
 import { NotificationWidget } from "../NotificationWidget";
 
 const StyledNavigation = styled.div`
@@ -15,20 +14,21 @@ const StyledNavigation = styled.div`
   left: 0;
   right: 0;
   width: 100%;
-  background-color: var(--slate-dark-1);
+  background-color: #161618;
   z-index: 1000;
-  padding: 12px 0;
+  padding: 4px 0;
+  border-bottom: 1px solid #161618;
+  transition: transform 0.3s ease;
+  height: 55px;  // Set the height of the navbar
 
-  .user-section {
-    margin-left: auto;
-    > button {
-      font-size: 14px;
-    }
+  &.hidden {
+    transform: translateY(-100%);
   }
 
   .container {
     display: flex;
     align-items: center;
+    height: 100%; // Ensure the content inside the navbar respects the height
 
     .navigation-section {
       margin-left: 50px;
@@ -42,6 +42,7 @@ const StyledNavigation = styled.div`
     }
 
     .user-section {
+      margin-left: auto;
       display: flex;
       align-items: center;
 
@@ -61,8 +62,33 @@ const StyledNavigation = styled.div`
 `;
 
 export function DesktopNavigation(props) {
+  const [isHidden, setIsHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Hide the navbar when scrolling down and scrolled past 100px
+        setIsHidden(true);
+      } else {
+        // Show the navbar when scrolling up
+        setIsHidden(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
-    <StyledNavigation>
+    <StyledNavigation className={isHidden ? "hidden" : ""}>
       <div className="container">
         <Link
           to="/"

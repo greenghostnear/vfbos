@@ -10,22 +10,23 @@ const StyledMobileMenuButton = styled.button`
   font-weight: var(--font-weight-bold);
   padding: 0;
 
-  .menu {
+ .menu {
     width: 18px;
-    height: 24px;
+    height: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     margin-right: 10px;
 
     div {
-      background-color: white;
+      background-color: #232528;
       height: 2px;
       width: 100%;
       border-radius: 30px;
     }
   }
 `;
+
 
 export function MobileMenuButton(props) {
   return (

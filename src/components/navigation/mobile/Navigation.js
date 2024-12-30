@@ -19,7 +19,7 @@ const StyledNavigation = styled.div`
   align-items: center;
   justify-content: space-between;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-  background-color: ${({ scrolled }) => (scrolled ? '#012c10' : '#012c10')};
+  background-color: ${({ scrolled }) => (scrolled ? '#161618' : '#161618')};
   transform: ${({ hide }) => (hide ? 'translateY(-100%)' : 'translateY(0)')};
   height: 48px;  // Limit the height of the navbar
 
@@ -44,7 +44,7 @@ const StyledNavigation = styled.div`
   }
 
   .nav-sign-in-btn:hover {
-    background: black; /* Change to black on hover */
+    background: #D7D7DE; /* Change to #D7D7DE on hover */
   }
 `;
 

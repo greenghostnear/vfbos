@@ -4,9 +4,9 @@ import styled from "styled-components";
 
 const StyledButton = styled(Button)`
   background-color: white;
-  border-color: #012c10;
+  border-color: #161618;
   border-radius: 50px;
-  color: #012c10;
+  color: #161618;
 max-height: 35px;
   display: flex; /* Enable flexbox */
   justify-content: center; /* Center horizontally */

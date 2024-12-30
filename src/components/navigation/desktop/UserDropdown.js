@@ -15,19 +15,21 @@ const StyledDropdown = styled.div`
   button,
   a {
     font-weight: var(--font-weight-medium);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   .dropdown-toggle {
     display: flex;
     align-items: center;
     text-align: left;
-    background-color: var(--slate-dark-5);
+    background-color: #161618;
     border-radius: 50px;
     outline: none;
     border: 0;
+    transition: background-color 0.3s ease;
 
     &:after {
       margin: 0 15px;
-      border-top-color: var(--slate-dark-11);
+      border-top-color: #687076;
     }
 
     img {
@@ -46,16 +48,16 @@ const StyledDropdown = styled.div`
       }
 
       .profile-name {
-        color: var(--slate-dark-12);
+        color: white;
       }
       .profile-username {
-        color: var(--slate-dark-11);
+        color: #687076;
       }
     }
   }
 
   ul {
-    background-color: var(--slate-dark-5);
+    background-color: #161618;
     width: 100%;
 
     li {
@@ -64,17 +66,18 @@ const StyledDropdown = styled.div`
 
     button,
     a {
-      color: var(--slate-dark-11);
+      color: #232528;
       display: flex;
       align-items: center;
-      border-radius: 8px;
+      border-radius: 50px;
       padding: 12px;
+      transition: background-color 0.3s ease, color 0.3s ease;
 
       :hover,
       :focus {
         text-decoration: none;
-        background-color: var(--slate-dark-1);
-        color: white;
+        background-color: #161618;
+        color: #D7D7DE;
 
         svg {
           path {
@@ -87,13 +90,12 @@ const StyledDropdown = styled.div`
         margin-right: 7px;
         min-width: 24px;
         path {
-          stroke: var(--slate-dark-9);
+          stroke: white;
         }
       }
     }
   }
 `;
-
 export function UserDropdown(props) {
   const near = useNear();
   const account = useAccount();
@@ -157,42 +159,7 @@ export function UserDropdown(props) {
               Withdraw {props.availableStorage.div(1000).toFixed(2)}kb
             </button>
           </li>
-          {account.pretendAccountId ? (
-            <li key="pretend">
-              <button
-                className="dropdown-item"
-                type="button"
-                disabled={!account.startPretending}
-                onClick={() => account.startPretending(undefined)}
-              >
-                <StopPretending />
-                Stop pretending
-              </button>
-            </li>
-          ) : (
-            <>
-              <li key="stop-pretend">
-                <button
-                  className="dropdown-item"
-                  type="button"
-                  onClick={() => setShowPretendModal(true)}
-                >
-                  <Pretend />
-                  Pretend to be another account
-                </button>
-              </li>
-              <li>
-                <button
-                  className="dropdown-item"
-                  type="button"
-                  onClick={() => setShowMobileQR(true)}
-                >
-                  <QR />
-                  Mobile Sign-in QR
-                </button>
-              </li>
-            </>
-          )}
+        
           <li>
             <button
               className="dropdown-item"
