@@ -66,7 +66,7 @@ const StyledDropdown = styled.div`
 
     button,
     a {
-      color: #232528;
+      color: white;
       display: flex;
       align-items: center;
       border-radius: 50px;
