@@ -19,14 +19,13 @@ const StyledMobileMenuButton = styled.button`
     margin-right: 10px;
 
     div {
-      background-color: #232528;
+      background-color: white;
       height: 2px;
       width: 100%;
       border-radius: 30px;
     }
   }
 `;
-
 
 export function MobileMenuButton(props) {
   return (
