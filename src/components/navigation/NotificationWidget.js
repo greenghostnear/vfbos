@@ -4,10 +4,12 @@ import { Widget } from "near-social-vm";
 
 const StyledNotificationWidget = styled.div`
   margin: 0 15px;
-  background-color: var(--slate-dark-5);
-  height: 40px;
-  width: 40px;
+  background-color: transparent;
+  height:20px;
+  width:20px;
   border-radius: 50%;
+
+
 
   > div,
   a {
@@ -16,20 +18,20 @@ const StyledNotificationWidget = styled.div`
   }
 
   a {
-    color: var(--slate-dark-11) !important;
+    color: white !important;
     display: flex;
     align-items: center;
     justify-content: center;
 
     i {
-      font-size: 18px !important;
+      font-size: 20px !important;
     }
   }
 
   :hover {
     a,
     i {
-      color: white;
+      color: white; 
     }
   }
 `;
